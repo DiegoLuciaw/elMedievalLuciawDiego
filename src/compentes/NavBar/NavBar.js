@@ -1,4 +1,5 @@
 import "./navbar.css";
+import CartWidget from "../CartWidget";
 export default function NavBar () {
     return(
         <header>
@@ -9,9 +10,11 @@ export default function NavBar () {
                             <li><a href="restaurante">Restaurante</a></li>
                             <li><a href="cocina">Cocino</a></li>
                             <li><a href="contacto">Contacto</a></li>
+                            <CartWidget/>
                         </ul>
                 </nav>
             </div>
         </header>
     )
 }
+
