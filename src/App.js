@@ -19,7 +19,7 @@ function App() {
           Restaurante El Medieval
         </h1>
         <img alt='logo' src={logo}></img>
-        <ItemListContainer/>>
+        <ItemListContainer/>
       </header>
     </div>
   );
