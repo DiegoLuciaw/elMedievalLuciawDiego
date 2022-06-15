@@ -1,7 +1,25 @@
-import ItemCount from "./ItemCount";
+
+import { useState, useEffect } from "react"
+import { ItemList } from "../compentes/ItemList/ItemList";
+import { menu } from "../MenuList";
+
 
 export default function ItemListContainer({title, description}) {
 
+  const [Platos, setPlatos] = useState([])
+  
+  useEffect(() =>{
+    const getMenu = new Promise((resolve, reject) =>{
+      setTimeout(() =>{
+        resolve(menu);
+      }, 2000);
+    });
+    getMenu.then((resolve) =>{
+      setPlatos(resolve);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
     
   return (<>
@@ -10,7 +28,8 @@ export default function ItemListContainer({title, description}) {
     
     <p> Cocina Castellana</p>
 
-    <ItemCount stock={10} initial={1} />
+    
+    <ItemList items = {Platos}/>
     
     </>
   )
