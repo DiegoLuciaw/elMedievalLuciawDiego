@@ -1,7 +1,8 @@
 import logo from './media/RESTAURANTE-MEDIEVAL-exterior.jpg';
 import './App.css';
 import NavBar from './compentes/NavBar/NavBar';
-import ItemListContainer from './compentes/ItemsListContainer';
+import ItemDetailContainer from "./compentes/ItemDetailContainer/ItemDetailContainer";
+// import ItemListContainer from './compentes/ItemsListContainer';
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
           Restaurante El Medieval
         </h1>
         <img alt='logo' src={logo}></img>
-        <ItemListContainer/>
+        {/* <ItemListContainer/> */}
+        <ItemDetailContainer/>
       </header>
     </div>
   );
