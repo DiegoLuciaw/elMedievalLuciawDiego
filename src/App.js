@@ -2,8 +2,8 @@ import logo from './media/RESTAURANTE-MEDIEVAL-exterior.jpg';
 import './App.css';
 import NavBar from './compentes/NavBar/NavBar';
 import ItemDetailContainer from "./compentes/ItemDetailContainer/ItemDetailContainer";
-// import ItemListContainer from './compentes/ItemsListContainer';
-
+import ItemListContainer from './compentes/ItemsListContainer';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
 
@@ -15,13 +15,27 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <NavBar/>
         <h1 style={stylesH1}>
           Restaurante El Medieval
         </h1>
         <img alt='logo' src={logo}></img>
-        {/* <ItemListContainer/> */}
-        <ItemDetailContainer/>
+
+        <BrowserRouter>
+
+          <NavBar/>
+
+          <Routes>
+
+            <Route path="/" element={<ItemListContainer greeting="Menu"/>} />
+            
+            <Route path="/category/:categoryId" element={<ItemListContainer greeting="Categorias"/>}/>
+            
+            <Route path="/item/:id" element={<ItemDetailContainer greeting="Detalles del Plato"/>} />
+
+          </Routes>
+
+        </BrowserRouter>
+
       </header>
     </div>
   );

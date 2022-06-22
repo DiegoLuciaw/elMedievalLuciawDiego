@@ -2,10 +2,10 @@ div.itemfotos{
     display:flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .itemfotos img{
     border-radius: 5rem;
     width: 30rem;
 }
+

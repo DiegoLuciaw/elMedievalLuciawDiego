@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {useParams} from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { menu } from "../../MenuList";
 
@@ -7,10 +8,17 @@ export default function ItemListContainer() {
 
     const [Plato, setPlato] = useState([])
 
+    const { id } = useParams();
+
     useEffect(() =>{
     const getMenu = new Promise((resolve, reject) =>{
         setTimeout(() =>{
-        resolve(menu[0]);
+
+            const itemFound = menu.find(item =>{
+                return item.id === parseInt(id);
+            });
+
+        resolve(itemFound);
         }, 2000);
     });
     getMenu.then((resolve) =>{
@@ -18,7 +26,7 @@ export default function ItemListContainer() {
     }).catch((error) => {
         console.log(error);
     });
-    }, []);
+    }, [id]);
 
     
     return (<>
