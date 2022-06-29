@@ -4,19 +4,14 @@ function ItemCount({stock, initial, onAdd}) {
     const [ count, setCount ] = useState(initial)
 
     function suma() {
-    if (count < stock) {
-        setCount(count + 1)
+        (count < stock)
+        ? setCount(count + 1)
+        : alert('Stock superado')
     }
-    else{
-        alert('Stock superado')
-    }
+    function resta() {
+        (count > initial) && setCount(count - 1)
     }
 
-    function resta() {
-    if (count > initial) {
-        setCount(count - 1)
-    }
-    }
 
 return (
 

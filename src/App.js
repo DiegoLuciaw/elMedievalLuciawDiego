@@ -4,6 +4,7 @@ import Cart from "./compentes/Cart/Cart"
 import NavBar from './compentes/NavBar/NavBar';
 import ItemDetailContainer from "./compentes/ItemDetailContainer/ItemDetailContainer";
 import ItemListContainer from './compentes/ItemsListContainer';
+import { CartProvider } from './context/CartContext';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
           Restaurante El Medieval
         </h1>
         <img alt='logo' src={logo}></img>
+
+      <CartProvider>
 
         <BrowserRouter>
 
@@ -38,6 +41,8 @@ function App() {
           </Routes>
 
         </BrowserRouter>
+
+        </CartProvider>
 
       </header>
     </div>
