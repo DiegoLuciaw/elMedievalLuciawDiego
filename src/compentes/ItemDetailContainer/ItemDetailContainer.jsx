@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {useParams} from "react-router-dom";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
-import { menu } from "../../MenuList";
+import { traerUnProducto } from "../../services/firestore";
 
 
 export default function ItemListContainer() {
@@ -11,17 +11,8 @@ export default function ItemListContainer() {
     const { id } = useParams();
 
     useEffect(() =>{
-    const getMenu = new Promise((resolve, reject) =>{
-        setTimeout(() =>{
-
-            const itemFound = menu.find(item =>{
-                return item.id === parseInt(id);
-            });
-
-        resolve(itemFound);
-        }, 2000);
-    });
-    getMenu.then((resolve) =>{
+        traerUnProducto(id)
+        .then((resolve) =>{
         setPlato(resolve);
     }).catch((error) => {
         console.log(error);

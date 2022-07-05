@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { ItemList } from "../compentes/ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import { menu } from "../MenuList";
+import { getItems } from "../services/firestore";
 
 
 export default function ItemListContainer({title, description}) {
@@ -11,22 +11,9 @@ export default function ItemListContainer({title, description}) {
   const { categoryId } = useParams()
   
   useEffect(() =>{
-    const getMenu = new Promise((resolve, reject) =>{
-      setTimeout(() =>{
 
-        if(categoryId === undefined)
-        resolve(menu);
-    
-        else{
-            const itemsFound = menu.filter( item =>{
-                return item.category === categoryId;
-            })
-            resolve(itemsFound);
-        }
-
-    }, 2000);
-    });
-    getMenu.then((resolve) =>{
+    getItems()
+    .then((resolve) =>{
       setPlatos(resolve);
     }).catch((error) => {
       console.log(error);
