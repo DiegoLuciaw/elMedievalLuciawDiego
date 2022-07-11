@@ -1,5 +1,6 @@
 import { CartContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom';
+import { createBuyOrder } from '../../services/firestore';
 import React, { useContext } from 'react';
 
 const Cart = () => {
@@ -15,6 +16,24 @@ const Cart = () => {
             </>
 )
     }
+
+    function handleBuyOrder(){
+        const dataOrder = {
+            buyer: {
+                nombre: "React 37070",
+                numero: 123456789,
+                email: "react37070@coder.abc"
+            },
+                items: cart,
+                total: totalCost(),
+        }
+    createBuyOrder(dataOrder).then ( (orderDataCreated) => {
+        clearCart();
+        console.log(orderDataCreated.id);
+    })    
+
+    } 
+
     return (
         <div>
     {
@@ -30,7 +49,7 @@ const Cart = () => {
     };
         <p>Total de la compra: ${totalCost()}</p>
         <button onClick={clearCart}>Vaciar Carrito</button>
-        <button>Comprar</button>
+        <button onClick={handleBuyOrder}>Comprar</button>
     </div>
     )
 }

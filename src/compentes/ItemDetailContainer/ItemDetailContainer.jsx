@@ -27,6 +27,7 @@ export default function ItemListContainer() {
     <p> Cocina Castellana</p>
 
     <ItemDetail item= {Plato}></ItemDetail>
+
     
     </>
     )
