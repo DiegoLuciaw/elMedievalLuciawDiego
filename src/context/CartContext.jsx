@@ -62,7 +62,7 @@ const clearCart = () => {
 const totalCost = () => {
     let total = 0
     cart.forEach(prod => {
-      total += prod.qty * prod.price
+      total += prod.qty * prod.precio
     })
 
     return total
