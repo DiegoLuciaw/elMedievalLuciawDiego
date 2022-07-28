@@ -14,7 +14,7 @@ Este proyecto es un Ecommerce en el que podes ordenar la comida que prefieras, a
 * Vaya al directorio
 
 ```bash
-  cd app
+  cd elmedievalluciaw 
 ```
 
 * Instale dependencias
